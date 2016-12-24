@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-modal": "^1.6.4",
     "superagent": "^3.3.1"
   },
   "scripts": {
