@@ -7,6 +7,7 @@ import '../styles/app.css';
 
 class App extends React.Component {
   render() {
+    // onTermChange is a prop that we pass to SearchBar and we call requestGifs with what onTermChange passes
     return (
       <div>
         <SearchBar onTermChange={this.props.actions.requestGifs} />
@@ -20,7 +21,7 @@ function mapStateToProps(state) {
     gifs: state.gifs
   };
 }
-
+// this adds the action creators to props
 function mapDispatchToProps(dispatch){
   return {
     actions: bindActionCreators(Actions, dispatch)
