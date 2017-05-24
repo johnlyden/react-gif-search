@@ -1,9 +1,9 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    onInputChange(term) {
-        this.props.onTermChange(term);
-    }
+  onInputChange(term) {
+      this.props.onTermChange(term);
+  }
 
   render() {
     return (
