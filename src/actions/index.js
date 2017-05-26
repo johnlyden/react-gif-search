@@ -7,6 +7,8 @@ const API_KEY = '&api_key=dc6zaTOxFJmzC';
 
 // action creator
 export function requestGifs(term = null) {
+    // superagent GET supports es6 promises - it returns a promise which is how the 
+    // redux-promise is able to work with promise
     const data = request.get(`${API_URL}${term.replace(/\s/g, '+')}${API_KEY}`);
     // action
     return {
