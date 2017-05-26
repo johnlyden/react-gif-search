@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
+import GifList from '../components/GifList';
 import SearchBar from '../components/SearchBar';
 import '../styles/app.css';
 
@@ -11,17 +12,30 @@ class App extends React.Component {
     return (
       <div>
         <SearchBar onTermChange={this.props.actions.requestGifs} />
+        <GifList gifs={ this.props.gifs } />
       </div>
     );
   }
 }
 
+/**
+ * this is how we get info from state (the Store) to the props (the container - smart component)
+ * like how we pass it into GifList up there.  makes result of reducers available to container as props
+ * mapping data from state to props
+ * @param { object } state 
+ */
 function mapStateToProps(state) {
   return {
-    gifs: state.gifs
+    gifs: state.gifs.data
   };
 }
-// this adds the action creators to props
+/**
+ * adds the action creators to props
+ * this is passing data from the container (App.js) to the store. provides ability for the container
+ * to tell the store that it needs to change and enables this by adding action creators to our
+ * container as props 
+ * @param {*} dispatch 
+ */
 function mapDispatchToProps(dispatch){
   return {
     actions: bindActionCreators(Actions, dispatch)

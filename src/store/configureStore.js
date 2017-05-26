@@ -7,6 +7,8 @@ export default function configureStore(initialState){
         rootReducer,
         initialState,
         compose(
+            // If it receives a promise, it will dispatch the resolved value of the promise. 
+            // It will not dispatch anything if the promise rejects.
             applyMiddleware(ReduxPromise),
             window.devToolsExtension ? window.devToolsExtension() : undefined
         )
